@@ -8,10 +8,19 @@ import { customElement, property } from 'lit/decorators.js';
 export class PokemonElement extends LitElement {
   @property({ type: Number })
   index = 0;
+
   @property({ type: String })
   name = '';
+
   @property({ type: String })
   spriteUrl = '';
+
+  private handleClick() {
+    window.open(
+      `https://bulbapedia.bulbagarden.net/wiki/${this.name}_(Pokemon)`,
+      '_blank'
+    );
+  }
 
   render() {
     const capitalizedName = this.name
@@ -19,14 +28,17 @@ export class PokemonElement extends LitElement {
       : '';
 
     return html`
-      <span class="index">#${this.index}</span>
-      <img src="${this.spriteUrl || ''}" alt="${this.name} sprite" />
-      <h2>${capitalizedName}</h2>
+      <div @click=${this.handleClick}>
+        <span class="index">#${this.index}</span>
+        <img src="${this.spriteUrl || ''}" alt="${this.name} sprite" />
+        <h2>${capitalizedName}</h2>
+      </div>
     `;
   }
 
   static styles = css`
     :host {
+      cursor: pointer;
       flex: 1;
       aspect-ratio: 1 / 1;
       display: flex;
@@ -38,6 +50,13 @@ export class PokemonElement extends LitElement {
       border-radius: 8px;
       text-align: center;
       position: relative;
+    }
+
+    :host(:hover) {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+      transition: all 0.2s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     .index {
