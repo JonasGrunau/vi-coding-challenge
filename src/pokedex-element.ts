@@ -118,6 +118,8 @@ export class PokedexElement extends LitElement {
       border: solid 1px gray;
       border-radius: 8px;
       padding: 32px;
+      min-width: 800px;
+      box-sizing: border-box;
     }
 
     h2 {
