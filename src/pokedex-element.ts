@@ -1,4 +1,4 @@
-import { LitElement, css, html, type PropertyValues } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import type { Pokemon } from './interfaces/pokeapi/Pokemon/Pokemon';
 import './components/pokemon-element/pokemon-element';
