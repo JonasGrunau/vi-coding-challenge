@@ -6,8 +6,6 @@ import './components/filter-element/filter-element';
 
 /**
  * An Element to display a list of Pokemon in a Pokedex format.
- *
- * @slot - This element has a slot
  */
 @customElement('pokedex-element')
 export class PokedexElement extends LitElement {
